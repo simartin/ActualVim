@@ -324,7 +324,7 @@ class ActualVim:
         if tmp != self.last_settings:
             if tmp.get('translate_tabs_to_spaces'):
                 neo.vim.cmd('set expandtab ts={ts} shiftwidth={ts} softtabstop=0 smarttab'.format(ts=tmp['tab_size']))
-            else: neo.vim.cmd('set noexpandtab softtabstop=0')
+            else: neo.vim.cmd('set noexpandtab tabstop=8 shiftwidth=2 softtabstop=2')
 
             if tmp['read_only']:
                 neo.vim.cmd('set noma')
