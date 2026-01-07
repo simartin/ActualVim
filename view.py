@@ -672,7 +672,12 @@ class ActualVim:
         with self.cmd_lock:
             window = self.view.window()
             if cmd == 'cmdline_show':
-                content, pos, firstc, prompt, indent, level = args[0]
+                # Handle breaking change in 0.11:
+                #   https://neovim.io/doc/user/news-0.11.html#_events
+                if neo.vim.nv.version.minor < 11:
+                    content, pos, firstc, prompt, indent, level = args[0]
+                else:
+                    content, pos, firstc, prompt, indent, level, _ = args[0]
                 text = content[0][1]
 
                 def on_done(s):
