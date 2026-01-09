@@ -333,6 +333,7 @@ class Vim:
                     'expandtab': '&expandtab',
                     'ts': '&ts',
                     'changedtick': 'getbufvar(bufnr("%"), "changedtick")',
+                    'changenr': 'changenr()',
                     'wrap': '&wrap',
 
                     'cline': 'line(".") - 1',
